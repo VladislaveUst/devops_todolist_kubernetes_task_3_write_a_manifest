@@ -1,6 +1,8 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
+from django.urls import path, include
+
 from api import views
 
 router = DefaultRouter()
@@ -9,6 +11,8 @@ router.register(r"todolists", views.TodoListViewSet)
 router.register(r"todos", views.TodoViewSet)
 
 app_name = "api"
+
 urlpatterns = [
-    path("", include(router.urls))
+    path("", include(router.urls)),
+    path("health/", views.health, name="health"),  # 👈 добавили health endpoint
 ]
