@@ -62,5 +62,17 @@ class TodoViewSet(viewsets.ModelViewSet):
 def health(request):
     return JsonResponse({
         "status": "ok",
-        "timestamp": timezone.now()
+        "timestamp": timezone.now().isoformat()
+    })
+
+def ready(request):
+    return JsonResponse({
+        "status": "HTTP 200",
+        "timestamp": timezone.now().isoformat()
+    })
+
+def live(request):
+    return JsonResponse({
+        "status": "HTTP 200",
+        "timestamp": timezone.now().isoformat()
     })
